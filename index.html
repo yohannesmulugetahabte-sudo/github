@@ -1,113 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Class Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Our Class Portfolio</title>
+<style>
+:root{--bg:#f2f6f3;--surface:#fff;--ink:#12261f;--muted:#4d6359;--green:#1f5e4b;--brass:#a9741a;--line:#cfdcd4;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1b16;--surface:#16271f;--ink:#e6efe9;--muted:#9db3a7;--green:#6fcfae;--brass:#e0b058;--line:#2a4136;color-scheme:dark}}
+html{scroll-padding-top:70px;scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif}
+h1,h2,h3{font-family:"Iowan Old Style",Georgia,"Times New Roman",serif;line-height:1.2;margin:0 0 .5em}
+h1{font-size:clamp(2rem,6vw,3.4rem)}
+h2{font-size:1.8rem}
+h3{font-size:1.2rem}
+p{margin:0 0 1em;max-width:70ch}
+a{color:var(--green)}
+:focus-visible{outline:3px solid var(--brass);outline-offset:2px}
+header.hero{padding:56px 20px 40px;border-bottom:4px solid var(--green);max-width:1000px;margin:0 auto}
+.hero p{font-size:1.1rem;color:var(--muted)}
+nav{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);border-bottom:1px solid var(--line);z-index:5}
+nav div{max-width:1000px;margin:0 auto;padding:10px 20px;display:flex;gap:6px 18px;flex-wrap:wrap}
+nav a{text-decoration:none;font-weight:600;padding:4px 0}
+nav a:hover{text-decoration:underline}
+main{max-width:1000px;margin:0 auto;padding:0 20px}
+section{padding:48px 0 8px}
+.wide{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:12px}
+table{border-collapse:collapse;width:100%;min-width:560px;background:var(--surface)}
+th,td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}
+th{background:var(--green);color:#fff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) th{color:#0f1b16}}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-bottom:20px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:18px}
+.card h3{margin-bottom:.3em}
+.card.focus{border:2px solid var(--brass)}
+.badge{display:inline-block;background:var(--brass);color:#fff;font-size:.8rem;font-weight:700;padding:2px 10px;border-radius:99px;margin-bottom:8px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .badge{color:#0f1b16}}
+.log{border-left:4px solid var(--green);padding:4px 0 4px 18px;margin-bottom:28px}
+.log time{color:var(--muted);font-weight:600;font-size:.9rem}
+.diagram{margin:0 0 28px}
+.diagram h3{margin-top:8px}
+.diagram .wide{display:flex;justify-content:center}
+pre.mermaid{margin:0;background:transparent}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.ph{aspect-ratio:4/3;border:2px dashed var(--line);border-radius:6px;display:flex;align-items:center;justify-content:center;text-align:center;padding:12px;color:var(--muted);background:var(--surface)}
+footer{max-width:1000px;margin:56px auto 0;padding:24px 20px 40px;border-top:1px solid var(--line);color:var(--muted)}
+</style>
 </head>
 <body>
 
-    <!-- Main Title -->
-    <header>
-        <h1>The Everyday Journey of Class [Insert Class Name/Grade]</h1>
-        <p>A digital portfolio documenting our daily learning, growth, and memories.</p>
-        <hr>
-    </header>
+<header class="hero">
+  <h1>The Everyday Journey of Class [Insert Class Name/Grade]</h1>
+  <p>Our digital portfolio of daily learning, group projects, and the tools we are learning to build and publish websites.</p>
+</header>
 
-    <!-- Navigation links to jump to sections -->
-    <nav>
-        <a href="#overview">Class Overview</a> | 
-        <a href="#daily-routine">Our Daily Schedule</a> | 
-        <a href="#journal">Journey Logs / Highlights</a> | 
-        <a href="#gallery">Classroom Moments</a>
-    </nav>
+<nav aria-label="Sections"><div>
+  <a href="#overview">Class overview</a>
+  <a href="#daily-routine">Daily schedule</a>
+  <a href="#journal">Journey log</a>
+  <a href="#uml">UML project</a>
+  <a href="#hosting">Hosting tools</a>
+  <a href="#gallery">Classroom moments</a>
+</div></nav>
 
-    <hr>
+<main>
 
-    
-    <section id="overview">
-        <h2>About Our Class</h2>
-        <p>Welcome to our portfolio! This page highlights what it is like to be a student in our classroom every day. From morning routines to afternoon projects, this is our story.</p>
-    </section>
+<section id="overview">
+  <h2>About our class</h2>
+  <p>Welcome to our portfolio. This page shows what a normal day looks like in our classroom, what we have learned so far, and the projects we built together. Our big topics this term: UML diagrams, planning real software systems, and publishing websites online.</p>
+  <div class="grid">
+    <div class="card"><h3>Design</h3><p>We model systems with UML before writing any code.</p></div>
+    <div class="card"><h3>Teamwork</h3><p>We present in groups: hospital, library, and business systems.</p></div>
+    <div class="card"><h3>Publishing</h3><p>We learn how GitHub, Vercel, and Render put a site online.</p></div>
+  </div>
+</section>
 
-    <!-- Section 2: Daily Schedule (Using an HTML Table) -->
-    <section id="daily-routine">
-        <h2>Our Daily Routine</h2>
-        <table border="1" cellpadding="10">
-            <thead>
-                <tr>
-                    <th>Time</th>
-                    <th>Activity / Subject</th>
-                    <th>What We Do</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>08:00 AM - 08:30 AM</td>
-                    <td>Morning Meeting</td>
-                    <td>Attendance, daily announcements, and goal setting.</td>
-                </tr>
-                <tr>
-                    <td>08:30 AM - 10:00 AM</td>
-                    <td>Mathematics & Science</td>
-                    <td>Solving problems, lab experiments, and critical thinking.</td>
-                </tr>
-                <tr>
-                    <td>10:00 AM - 10:30 AM</td>
-                    <td>Recess / Break</td>
-                    <td>Time to relax, play, and catch up with friends.</td>
-                </tr>
-                <tr>
-                    <td>10:30 AM - 12:00 PM</td>
-                    <td>Language Arts & History</td>
-                    <td>Reading, essay writing, and learning about world events.</td>
-                </tr>
-                <tr>
-                    <td>12:00 PM - 01:00 PM</td>
-                    <td>Lunch</td>
-                    <td>Refueling for the afternoon ahead.</td>
-                </tr>
-                <tr>
-                    <td>01:00 PM - 03:00 PM</td>
-                    <td>Web Development / Electives</td>
-                    <td>Working on coding projects (like this website!).</td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
+<section id="daily-routine">
+  <h2>Our daily routine</h2>
+  <div class="wide">
+  <table>
+    <thead><tr><th>Time</th><th>Activity / subject</th><th>What we do</th></tr></thead>
+    <tbody>
+      <tr><td>08:00 AM – 08:30 AM</td><td>Morning meeting</td><td>Attendance, daily announcements, and goal setting.</td></tr>
+      <tr><td>08:30 AM – 10:00 AM</td><td>Mathematics &amp; Science</td><td>Solving problems, lab experiments, and critical thinking.</td></tr>
+      <tr><td>10:00 AM – 10:30 AM</td><td>Recess / Break</td><td>Time to relax, play, and catch up with friends.</td></tr>
+      <tr><td>10:30 AM – 12:00 PM</td><td>Language Arts &amp; History</td><td>Reading, essay writing, and learning about world events.</td></tr>
+      <tr><td>12:00 PM – 01:00 PM</td><td>Lunch</td><td>Refueling for the afternoon ahead.</td></tr>
+      <tr><td>01:00 PM – 03:00 PM</td><td>Web development / Electives</td><td>Coding projects, UML practice, and this website.</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
 
-    <!-- Section 3: The Journey Journal -->
-    <section id="journal">
-        <h2>The Journey Log (Weekly Highlights)</h2>
-        
-        <article>
-            <h3>Week 1: Setting Expectations & Coding Basics</h3>
-            <p><strong>Date:</strong> October 2026</p>
-            <p>We kicked off the month by designing our classroom rules and electing class representatives. In tech class, our teacher challenged us to build our very first website layout using pure HTML.</p>
-        </article>
+<section id="journal">
+  <h2>Journey log</h2>
 
-        <article>
-            <h3>Week 2: The Group Science Project</h3>
-            <p><strong>Date:</strong> November 2026</p>
-            <p>This week was all about teamwork. We split into groups of four to build models demonstrating renewable energy. It was messy, loud, and incredibly fun.</p>
-        </article>
-    </section>
+  <article class="log">
+    <time>Class 1</time>
+    <h3>Introduction to UML diagrams</h3>
+    <p>We learned that UML (Unified Modeling Language) is a standard way to draw how a system works before building it. Our teacher assigned group presentations on three diagram types: activity, use case, and sequence. Each group got one system to model: hospital, library, or business. Our group took the <strong>Library Management System</strong>.</p>
+  </article>
 
-    <!-- Section 4: Photo Gallery Placeholders -->
-    <section id="gallery">
-        <h2>Classroom Moments</h2>
-        <p>Below are placeholders where we will add photos of our everyday journey:</p>
-        <!-- Replace 'classroom.jpg' with your actual image file paths later -->
-        <img src="classroom.jpg" alt="Our Class Studying" width="300">
-        <img src="project.jpg" alt="Group Project Presentation" width="300">
-    </section>
+  <article class="log">
+    <time>Class 2</time>
+    <h3>[Add what you learned in Class 2]</h3>
+    <p>Replace this text with a short summary of your second class.</p>
+  </article>
 
-    <hr>
+  <article class="log">
+    <time>Class 3</time>
+    <h3>Tools to host and store our websites</h3>
+    <p>We learned that a website on your own computer is not visible to anyone else. Tools like GitHub, Vercel, and Render store the code and publish it online so anyone can open it with a link.</p>
+  </article>
+</section>
 
-    <!-- Footer -->
-    <footer>
-        <p>Portfolio created by [Your Name] &copy; 2026</p>
-    </footer>
+<section id="uml">
+  <h2>Group project: Library Management System</h2>
+  <p>Our group modeled a library where members search, borrow, and return books and librarians manage the catalog. Below are our three UML diagrams.</p>
+
+  <div class="grid">
+    <div class="card"><h3>Use case diagram</h3><p>Shows who uses the system (actors) and what they can do.</p></div>
+    <div class="card"><h3>Activity diagram</h3><p>Shows the step-by-step flow of borrowing and returning a book.</p></div>
+    <div class="card"><h3>Sequence diagram</h3><p>Shows the order of messages between the member, system, and database.</p></div>
+  </div>
+
+  <figure class="diagram">
+    <h3>1. Use case diagram</h3>
+    <div class="wide">
+<pre class="mermaid">
+flowchart LR
+  M([Member]) --> U1((Search books))
+  M --> U2((Borrow book))
+  M --> U3((Return book))
+  M --> U4((Reserve book))
+  L([Librarian]) --> U5((Manage books))
+  L --> U6((Manage members))
+  L --> U7((Collect fines))
+  U2 -.->|includes| U8((Check availability))
+  U4 -.->|includes| U8
+  U3 -.->|extends| U7
+</pre>
+    </div>
+  </figure>
+
+  <figure class="diagram">
+    <h3>2. Activity diagram: borrow and return</h3>
+    <div class="wide">
+<pre class="mermaid">
+flowchart TD
+  S((Start)) --> A[Member searches for a book]
+  A --> B{Book available?}
+  B -->|Yes| C[Librarian issues the book]
+  C --> D[System sets a due date]
+  D --> E[Member returns the book]
+  E --> F{Returned late?}
+  F -->|Yes| G[System calculates fine]
+  G --> H((End))
+  F -->|No| H
+  B -->|No| I[Member reserves the book]
+  I --> H
+</pre>
+    </div>
+  </figure>
+
+  <figure class="diagram">
+    <h3>3. Sequence diagram: borrowing a book</h3>
+    <div class="wide">
+<pre class="mermaid">
+sequenceDiagram
+  actor Member
+  participant Sys as Library System
+  participant DB as Database
+  Member->>Sys: Request to borrow a book
+  Sys->>DB: Check availability
+  DB-->>Sys: Book is available
+  Sys->>DB: Create loan record
+  DB-->>Sys: Loan saved
+  Sys-->>Member: Confirm due date
+</pre>
+    </div>
+  </figure>
+</section>
+
+<section id="hosting">
+  <h2>Hosting tools for our websites</h2>
+  <p>To share a website we store the code online and then publish it. Here are the three tools from our class.</p>
+  <div class="wide">
+  <table>
+    <thead><tr><th>Tool</th><th>What it does</th><th>Good for</th></tr></thead>
+    <tbody>
+      <tr><td><strong>GitHub</strong></td><td>Stores our code and tracks every change. GitHub Pages can also publish simple sites.</td><td>Saving projects and working together in a team.</td></tr>
+      <tr><td><strong>Vercel</strong></td><td>Connects to a GitHub project and publishes it with a live link, updating on every change.</td><td>Fast publishing of websites and front-end apps.</td></tr>
+      <tr><td><strong>Render</strong></td><td>Hosts websites and also back-end servers and databases.</td><td>Projects that need a server, such as a library system with a database.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3 style="margin-top:28px">How we publish this portfolio</h3>
+  <div class="grid">
+    <div class="card"><h3>1. Save the code</h3><p>Upload the HTML file to a GitHub repository.</p></div>
+    <div class="card"><h3>2. Connect a host</h3><p>Import the repository into Vercel or Render.</p></div>
+    <div class="card"><h3>3. Share the link</h3><p>Copy the live link and show your class.</p></div>
+  </div>
+</section>
+
+<section id="gallery">
+  <h2>Classroom moments</h2>
+  <p>Photos will be added here. Replace each box with an image of your own.</p>
+  <div class="gallery">
+    <div class="ph">Photo: our class studying</div>
+    <div class="ph">Photo: UML group presentation</div>
+    <div class="ph">Photo: publishing our website</div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>Portfolio created by yohannes mulugeta &copy; 2026</p>
+</footer>
+
+<!-- Draws the UML diagrams (needs internet) -->
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js"></script>
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ startOnLoad: true, theme: "neutral" });
+  }
+</script>
 
 </body>
 </html>
