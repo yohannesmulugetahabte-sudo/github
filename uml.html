@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UML Project</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f2f6f3; color: #12261f; max-width: 900px; margin: 0 auto; padding: 20px; line-height: 1.6; }
+    h1 { font-family: Georgia, serif; border-bottom: 4px solid #1f5e4b; padding-bottom: 10px; }
+    .card { background: #fff; border: 1px solid #cfdcd4; border-radius: 6px; padding: 16px; margin-bottom: 20px; overflow-x: auto; }
+    a { color: #1f5e4b; font-weight: bold; }
+  </style>
+</head>
+<body>
+
+  <h1>UML Project: Library Management System</h1>
+  <p>Members search, borrow, and return books. Librarians manage the catalog.</p>
+
+  <h2>1. Use case diagram</h2>
+  <div class="card">
+<pre class="mermaid">
+flowchart LR
+  M([Member]) --> U1((Search books))
+  M --> U2((Borrow book))
+  M --> U3((Return book))
+  L([Librarian]) --> U4((Manage books))
+  L --> U5((Collect fines))
+  U5 -.->|extends| U3
+</pre>
+  </div>
+
+  <h2>2. Activity diagram</h2>
+  <div class="card">
+<pre class="mermaid">
+flowchart TD
+  S((Start)) --> A[Member searches for a book]
+  A --> B{Book available?}
+  B -->|Yes| C[Librarian issues the book]
+  C --> D[Member returns the book]
+  D --> E((End))
+  B -->|No| F[Member reserves the book]
+  F --> E
+</pre>
+  </div>
+
+  <h2>3. Sequence diagram</h2>
+  <div class="card">
+<pre class="mermaid">
+sequenceDiagram
+  actor Member
+  participant System
+  participant Database
+  Member->>System: Request to borrow a book
+  System->>Database: Check availability
+  Database-->>System: Book is available
+  System-->>Member: Confirm due date
+</pre>
+  </div>
+
+  <p><a href="index.html">Back to the home page</a></p>
+
+  <!-- Draws the diagrams (needs internet) -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js"></script>
+  <script>mermaid.initialize({ startOnLoad: true });</script>
+
+</body>
+</html>
